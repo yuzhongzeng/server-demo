@@ -15,11 +15,15 @@ router.get("/get", function(req, res, next) {
 });
 
 router.post("/post", function(req, res, next) {
-  res.json({
-    status: 200,
-    message: "post方法获取数据",
-    data: []
-  });
+  console.log(req.body);
+  let time = req.body.delay || 0;
+  setTimeout(() => {
+    res.json({
+      status: 200,
+      message: "post方法获取数据",
+      data: []
+    });
+  }, time);
 });
 
 module.exports = router;
